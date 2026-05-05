@@ -8,7 +8,6 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     apache2 \
     php \
-    npm \
     php-xml \
     php-mbstring \
     php-curl \
@@ -17,6 +16,10 @@ RUN apt-get update && \
     unzip \
     nano \
     curl && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php && \
