@@ -1,5 +1,9 @@
 FROM ubuntu:22.04
 
+RUN echo "deb http://kebo.pens.ac.id/ubuntu/ jammy main restricted" > /etc/apt/sources.list && \
+    echo "deb http://kebo.pens.ac.id/ubuntu/ jammy universe" >> /etc/apt/sources.list && \
+    echo "deb http://kebo.pens.ac.id/ubuntu/ jammy multiverse" >> /etc/apt/sources.list
+
 RUN apt update -y && \
     DEBIAN_FRONTEND=noninteractive apt install -y apache2 \
     php \
