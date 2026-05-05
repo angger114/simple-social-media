@@ -1,12 +1,12 @@
 FROM ubuntu:22.04
 
-RUN echo "deb http://kebo.pens.ac.id/ubuntu/ jammy main restricted" > /etc/apt/sources.list && \
-    echo "deb http://kebo.pens.ac.id/ubuntu/ jammy universe" >> /etc/apt/sources.list && \
-    echo "deb http://kebo.pens.ac.id/ubuntu/ jammy multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://kartolo.sby.datautama.net.id/ubuntu/ jammy main restricted universe multiverse" > /etc/apt/sources.list && \
+    echo "deb http://kartolo.sby.datautama.net.id/ubuntu/ jammy-updates main restricted universe multiverse" >> /etc/apt/sources.list && \
+    echo "deb http://kartolo.sby.datautama.net.id/ubuntu/ jammy-security main restricted universe multiverse" >> /etc/apt/sources.list
 
-RUN apt update -y && \
-    DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \
-    DEBIAN_FRONTEND=noninteractive apt install -y apache2 \
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    apache2 \
     php \
     npm \
     php-xml \
@@ -15,7 +15,7 @@ RUN apt update -y && \
     php-mysql \
     php-gd \
     unzip \
-    nano  \
+    nano \
     curl && \
     rm -rf /var/lib/apt/lists/*
 
