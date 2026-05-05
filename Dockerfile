@@ -1,8 +1,8 @@
 FROM ubuntu:22.04
 
-RUN echo "deb http://kartolo.sby.datautama.net.id/ubuntu/ jammy main restricted universe multiverse" > /etc/apt/sources.list && \
-    echo "deb http://kartolo.sby.datautama.net.id/ubuntu/ jammy-updates main restricted universe multiverse" >> /etc/apt/sources.list && \
-    echo "deb http://kartolo.sby.datautama.net.id/ubuntu/ jammy-security main restricted universe multiverse" >> /etc/apt/sources.list
+RUN echo "deb http://id.archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse" > /etc/apt/sources.list && \
+    echo "deb http://id.archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse" >> /etc/apt/sources.list && \
+    echo "deb http://id.archive.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse" >> /etc/apt/sources.list
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
